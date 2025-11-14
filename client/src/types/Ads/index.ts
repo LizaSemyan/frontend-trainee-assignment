@@ -1,8 +1,14 @@
+import type { Pagination } from '../Pagination';
+
 export type AdStatus = 'pending' | 'approved' | 'rejected' | 'draft';
 
 export type AdPriority = 'normal' | 'urgent';
 
 export type ModerationAction = 'approved' | 'rejected' | 'requestChanges';
+
+export type SortBy = 'createdAt' | 'price' | 'priority';
+
+export type SortOrder = 'asc' | 'desc';
 
 export interface Seller {
   id: number;
@@ -37,4 +43,21 @@ export interface Advertisement {
   seller: Seller;
   characteristics: Record<string, string>;
   moderationHistory: ModerationHistoryItem[];
+}
+
+export interface GetAdsParams {
+  page?: number;
+  limit?: number;
+  status?: AdStatus[];
+  categoryId?: number;
+  minPrice?: number;
+  maxPrice?: number;
+  search?: string;
+  sortBy?: SortBy;
+  sortOrder?: SortOrder;
+}
+
+export interface AdsListResponse {
+  ads: Advertisement[];
+  pagination: Pagination;
 }

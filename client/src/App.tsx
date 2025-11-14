@@ -1,22 +1,21 @@
 import './App.css';
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material/styles';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import AdsItemPage from './pages/AdsItemPage';
-import AdsListPage from './pages/AdsListPage';
-import NotFoundPage from './pages/NotFoundPage';
-import StatisticsPage from './pages/StatisticsPage';
+import { AppLayout } from './components';
+import AppRouter from './router/AppRouter';
+import { theme } from './theme.ts';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/item/:id" element={<AdsItemPage />} />
-        <Route path="/list" element={<AdsListPage />} />
-        <Route path="/stats" element={<StatisticsPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <AppLayout>
+          <AppRouter />
+        </AppLayout>
+      </Router>
+    </ThemeProvider>
   );
 }
 

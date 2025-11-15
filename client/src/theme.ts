@@ -21,6 +21,10 @@ export const theme = createTheme({
 
   typography: {
     fontFamily: `'Inter', 'Roboto', sans-serif`,
+    h2: {
+      fontWeight: 600,
+      fontSize: 40,
+    },
     h5: {
       fontWeight: 600,
     },
@@ -56,6 +60,13 @@ export const theme = createTheme({
         root: {
           textTransform: 'none',
           fontWeight: 500,
+        },
+      },
+    },
+    MuiTypography: {
+      styleOverrides: {
+        h2: {
+          marginBottom: '10px',
         },
       },
     },

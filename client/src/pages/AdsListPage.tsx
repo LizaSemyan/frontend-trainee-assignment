@@ -1,39 +1,49 @@
-import { Box, CircularProgress, Typography } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { Box, CircularProgress, Stack, Typography } from '@mui/material';
 
-import { adsService } from '../api/ads.service';
 import { AdsCard } from '../components';
-import type { Advertisement } from '../types';
+import { PaginationBlock } from '../components';
+import { Sort } from '../components';
+import { Search } from '../components';
+import { Filter } from '../components';
+import { useAdsListPageLogic } from '../hooks/useAppListPage';
 
 const AdsListPage = () => {
-  const [ads, setAds] = useState<Advertisement[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  const loadAds = async (page = 1) => {
-    setLoading(true);
-    try {
-      const res = await adsService.getAds({ page, limit: 10 });
-      setAds(res.data.ads);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    loadAds();
-  }, []);
+  const { ads, pagination, categories, filters, loading, applyFilters, changePage } =
+    useAdsListPageLogic();
 
   return (
     <Box>
-      <Typography variant="h2">Список объявлений</Typography>
+      <Typography variant="h2" sx={{ textAlign: 'center' }}>
+        Список объявлений
+      </Typography>
 
-      {loading && (
-        <Box sx={{ textAlign: 'center', mt: 5 }}>
-          <CircularProgress />
-        </Box>
+      <Stack spacing={2}>
+        <Search values={filters} onChange={applyFilters} />
+        <Sort values={filters} onChange={applyFilters} />
+        <Filter values={filters} onChange={applyFilters} categories={categories} />
+
+        {loading && (
+          <Box sx={{ textAlign: 'center', mt: 5 }}>
+            <CircularProgress />
+          </Box>
+        )}
+
+        {!loading && ads.map((ad) => <AdsCard key={ad.id} ad={ad} />)}
+      </Stack>
+
+      {!loading && pagination && (
+        <>
+          <PaginationBlock
+            currentPage={pagination.currentPage}
+            totalPages={pagination.totalPages}
+            onPageChange={(page) => changePage(page)}
+          />
+
+          <Typography variant="body1" color="text.secondary" sx={{ mt: 2, textAlign: 'center' }}>
+            Всего объявлений: {pagination.totalItems}
+          </Typography>
+        </>
       )}
-
-      {!loading && ads.map((ad) => <AdsCard key={ad.id} ad={ad} />)}
     </Box>
   );
 };

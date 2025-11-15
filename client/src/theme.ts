@@ -8,7 +8,7 @@ export const theme = createTheme({
       paper: '#ffffff',
     },
     primary: {
-      main: '#1976d2',
+      main: '#00AAFF',
     },
     secondary: {
       main: '#9c27b0',
@@ -27,6 +27,10 @@ export const theme = createTheme({
     },
     h5: {
       fontWeight: 600,
+    },
+    h6: {
+      fontWeight: 600,
+      fontSize: 18,
     },
     body1: {
       fontSize: 15,
@@ -67,6 +71,22 @@ export const theme = createTheme({
       styleOverrides: {
         h2: {
           marginBottom: '10px',
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          position: 'absolute',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          backgroundColor: '#00AAFF',
+          '&:hover': {
+            backgroundColor: '#135ca4ff',
+          },
+          '& .MuiSvgIcon-root': {
+            color: '#fff',
+          },
         },
       },
     },

@@ -45,7 +45,13 @@ export const AdsCard = ({ ad }: { ad: Advertisement }) => {
       </Box>
 
       <Box>
-        <Button variant="contained" color="primary" component={Link} to={`/item/${ad.id}`}>
+        <Button
+          variant="contained"
+          color="primary"
+          component={Link}
+          to={`/item/${ad.id}`}
+          sx={{ color: '#fff' }}
+        >
           Открыть →
         </Button>
       </Box>

@@ -1,8 +1,10 @@
+import { Typography } from '@mui/material';
+
 const NotFoundPage = () => {
   return (
-    <div>
-      <h1>Страница не найдена</h1>
-    </div>
+    <Typography variant="h2" sx={{ textAlign: 'center' }}>
+      Такой страницы не существует
+    </Typography>
   );
 };
 

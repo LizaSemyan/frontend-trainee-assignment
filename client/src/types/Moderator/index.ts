@@ -15,3 +15,10 @@ export interface ModeratorStats {
   averageReviewTime: number;
   approvalRate: number;
 }
+
+export interface ModerationPayload {
+  reason: string;
+  comment?: string;
+}
+
+export type RejectModalMode = 'reject' | 'changes';

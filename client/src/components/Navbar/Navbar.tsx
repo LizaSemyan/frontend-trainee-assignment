@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Navbar = () => {
   return (
-    <AppBar position="static" color="primary" sx={{ borderRadius: 0 }}>
+    <AppBar position="static" color="primary" sx={{ borderRadius: 0, color: '#fff' }}>
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography variant="h6">Авито Модерация</Typography>
 

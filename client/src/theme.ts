@@ -65,6 +65,10 @@ export const theme = createTheme({
           textTransform: 'none',
           fontWeight: 500,
         },
+        contained: {
+          textTransform: 'none',
+          color: '#fff',
+        },
       },
     },
     MuiTypography: {

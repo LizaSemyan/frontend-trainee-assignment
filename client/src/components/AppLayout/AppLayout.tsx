@@ -7,7 +7,7 @@ export const AppLayout = ({ children }: { children: React.ReactNode }) => {
     <Box sx={{ minHeight: '100vh', bgcolor: 'background.default' }}>
       <Navbar />
 
-      <Container maxWidth="md" sx={{ py: 3 }}>
+      <Container maxWidth="md" sx={{ py: 2 }}>
         {children}
       </Container>
     </Box>

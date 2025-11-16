@@ -2,6 +2,7 @@ import { Button, Card, Stack } from '@mui/material';
 import { useState } from 'react';
 
 import { adsService } from '../../api/ads.service';
+import { useModerationHotkeys } from '../../hooks/useModerationHotkeys';
 import type { Advertisement, ModerationPayload } from '../../types';
 import { RejectModal } from '../RejectModal/RejectModal';
 
@@ -18,6 +19,12 @@ export const AdActions = ({ ad, reload }: AdActionsProps) => {
     await adsService.approveAd(ad.id);
     reload();
   };
+
+  useModerationHotkeys({
+    onApprove: approve,
+    onReject: () => setRejectOpen(true),
+    onRequestChanges: () => setChangesOpen(true),
+  });
 
   return (
     <Card sx={{ p: 2 }}>

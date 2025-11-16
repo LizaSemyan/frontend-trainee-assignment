@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { adsService } from '../api/ads.service';
 import { AdFullCard } from '../components';
 import { AdActions } from '../components';
+import { useItemKeyboardNavigation } from '../hooks/useItemKeyboardNavigation';
 import { selectPrevNextIds } from '../store/adsSelectors';
 import { useAppSelector } from '../store/hooks';
 import type { Advertisement } from '../types';
@@ -17,6 +18,8 @@ const AdsItemPage = () => {
 
   const [ad, setAd] = useState<Advertisement | null>(null);
   const [loading, setLoading] = useState(true);
+
+  useItemKeyboardNavigation(prevId, nextId);
 
   const load = async () => {
     if (!id) return;

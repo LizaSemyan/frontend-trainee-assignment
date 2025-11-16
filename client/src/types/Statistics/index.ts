@@ -21,3 +21,11 @@ export interface DecisionsData {
   rejected: number;
   requestChanges: number;
 }
+
+export type Period = 'today' | 'week' | 'month' | 'custom';
+
+export interface PeriodParams {
+  period?: Period;
+  startDate?: string;
+  endDate?: string;
+}

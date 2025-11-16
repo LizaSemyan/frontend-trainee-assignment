@@ -1,14 +1,13 @@
-import { Box, Button, Typography, Stack } from '@mui/material';
+import { Box, Button, Stack, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { adsService } from '../api/ads.service';
 import { AdFullCard } from '../components';
 import { AdActions } from '../components';
-import type { Advertisement } from '../types';
-
-import { useAppSelector } from '../store/hooks';
 import { selectPrevNextIds } from '../store/adsSelectors';
+import { useAppSelector } from '../store/hooks';
+import type { Advertisement } from '../types';
 
 const AdsItemPage = () => {
   const { id } = useParams();

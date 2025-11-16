@@ -81,9 +81,6 @@ export const theme = createTheme({
     MuiIconButton: {
       styleOverrides: {
         root: {
-          position: 'absolute',
-          top: '50%',
-          transform: 'translateY(-50%)',
           backgroundColor: '#00AAFF',
           '&:hover': {
             backgroundColor: '#135ca4ff',

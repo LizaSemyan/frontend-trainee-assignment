@@ -19,3 +19,12 @@ export const formatDate = (iso: string) => {
     day: 'numeric',
   });
 };
+
+export const formatDateShort = (iso: string) => {
+  const date = new Date(iso);
+
+  return date.toLocaleString('ru-RU', {
+    month: 'long',
+    day: 'numeric',
+  });
+};

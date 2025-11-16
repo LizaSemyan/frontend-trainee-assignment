@@ -47,11 +47,17 @@ export const AdGallery = ({ images }: AdGalleryProps) => {
           }}
         />
 
-        <IconButton onClick={prev} sx={{ left: 10 }}>
+        <IconButton
+          onClick={prev}
+          sx={{ left: 10, position: 'absolute', top: '50%', transform: 'translateY(-50%)' }}
+        >
           <ArrowBackIosNewIcon />
         </IconButton>
 
-        <IconButton onClick={next} sx={{ right: 10 }}>
+        <IconButton
+          onClick={next}
+          sx={{ right: 10, position: 'absolute', top: '50%', transform: 'translateY(-50%)' }}
+        >
           <ArrowForwardIosIcon />
         </IconButton>
       </Box>

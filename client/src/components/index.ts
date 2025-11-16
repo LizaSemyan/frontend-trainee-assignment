@@ -11,3 +11,7 @@ export * from './Navbar/Navbar';
 export * from './PaginationBlock/PaginationBlock';
 export * from './Search/Search';
 export * from './Sort/Sort';
+export * from './StatsActivityChart/StatsActivityChart';
+export * from './StatsCategoriesChart/StatsCategoriesChart';
+export * from './StatsDecisionsPie/StatsDecisionsPie';
+export * from './StatsSummaryCard/StatsSummaryCard';
